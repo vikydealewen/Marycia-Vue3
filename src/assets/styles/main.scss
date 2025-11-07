@@ -1,0 +1,104 @@
+@use './mixins' as *;
+@use './vendor';
+@use './fonts';
+@use "./variables" as vars;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  margin: 0;
+  font-family: vars.$font-family;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.main-title {
+  margin: 0;
+  font-size: vars.$title-size;
+  font-weight: 700;
+  line-height: 117%;
+  color: vars.$white-color;
+
+  @include sm {
+    font-size: vars.$big-size;
+  }
+}
+
+.section {
+  &__title {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 120%;
+    color: vars.$white-color;
+
+    @include sm {
+      font-size: vars.$big-size;
+      line-height: 133%;
+    }
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 vars.$container-offset;
+
+  @include lg {
+    padding: 0 vars.$container-offset-lg;
+  }
+
+  @include md {
+    padding: 0 vars.$container-offset-md;
+  }
+
+  @include sm {
+    padding: 0 vars.$container-offset-xs;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.visually-hidden {
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.error {
+  font-size: vars.$big-size;
+  font-weight: 700;
+  color: vars.$red-color;
+}
+
+.error-form {
+  margin-bottom: 10px;
+  color: vars.$red-color;
+}
+
+#app {
+  font-weight: normal;
+  background: linear-gradient(180deg, rgb(39 135 245 / 20%) 0%, rgb(163 147 245 / 20%) 100%), linear-gradient(180deg, #000 0%, rgb(39 36 36 / 70%) 100%);
+}
